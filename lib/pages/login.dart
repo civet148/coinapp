@@ -97,8 +97,13 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    //ScreenUtil.instance = ScreenUtil(width:750,height:1334)..init(context);
-    ScreenUtil.init(width: 750, height: 1334, allowFontScaling: true);
+    //设置尺寸（填写设计中设备的屏幕尺寸）如果设计基于360dp * 690dp的屏幕
+    ScreenUtil.init(
+        BoxConstraints(
+            maxWidth: MediaQuery.of(context).size.width,
+            maxHeight: MediaQuery.of(context).size.height),
+        designSize: Size(360, 690),
+        orientation: Orientation.portrait);
     print(ScreenUtil().scaleHeight);
 
     // logo 图片区域
