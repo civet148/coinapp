@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
     print(ScreenUtil().scaleHeight);
 
     // logo 图片区域
-    Widget logoImageArea = new Container(
+    Widget logoImageArea = Container(
       alignment: Alignment.topCenter,
       // 设置图片为圆形
       child: ClipOval(
@@ -121,17 +121,17 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     //输入文本框区域
-    Widget inputTextArea = new Container(
-      margin: EdgeInsets.only(left: 20, right: 20),
-      decoration: new BoxDecoration(
+    Widget inputTextArea = Container(
+      margin: const EdgeInsets.only(left: 20, right: 20),
+      decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(8)),
           color: Colors.white),
-      child: new Form(
+      child: Form(
         key: _formKey,
-        child: new Column(
+        child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            new TextFormField(
+            TextFormField(
               controller: _userNameController,
               focusNode: _focusNodeUserName,
               //设置键盘类型
@@ -158,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                 _username = value.toString();
               },
             ),
-            new TextFormField(
+            TextFormField(
               focusNode: _focusNodePassWord,
               decoration: InputDecoration(
                   labelText: "密码",
@@ -189,10 +189,10 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     // 登录按钮区域
-    Widget loginButtonArea = new Container(
-      margin: EdgeInsets.only(left: 20, right: 20),
+    Widget loginButtonArea = Container(
+      margin: const EdgeInsets.only(left: 20, right: 20),
       height: 45.0,
-      child: new RaisedButton(
+      child: RaisedButton(
         color: Colors.blue[300],
         child: Text(
           "登录",
@@ -217,11 +217,11 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     //第三方登录区域
-    Widget thirdLoginArea = new Container(
-      margin: EdgeInsets.only(left: 20, right: 20),
-      child: new Column(
+    Widget thirdLoginArea = Container(
+      margin: const EdgeInsets.only(left: 20, right: 20),
+      child: Column(
         children: <Widget>[
-          new Row(
+          Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -230,7 +230,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 1.0,
                 color: Colors.grey,
               ),
-              Text('第三方登录'),
+              const Text('第三方登录'),
               Container(
                 width: 80,
                 height: 1.0,
@@ -238,10 +238,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ],
           ),
-          new SizedBox(
+          const SizedBox(
             height: 18,
           ),
-          new Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               IconButton(
@@ -270,9 +270,9 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     //忘记密码  立即注册
-    Widget bottomArea = new Container(
-      margin: EdgeInsets.only(right: 20, left: 30),
-      child: new Row(
+    Widget bottomArea = Container(
+      margin: const EdgeInsets.only(right: 20, left: 30),
+      child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -305,32 +305,32 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       // 外层添加一个手势，用于点击空白部分，回收键盘
-      body: new GestureDetector(
+      body: GestureDetector(
         onTap: () {
           // 点击空白区域，回收键盘
           print("点击了空白区域");
           _focusNodePassWord.unfocus();
           _focusNodeUserName.unfocus();
         },
-        child: new ListView(
+        child: ListView(
           children: <Widget>[
-            new SizedBox(
+            SizedBox(
               height: ScreenUtil().setHeight(80).toDouble(),
             ),
             logoImageArea,
-            new SizedBox(
+            SizedBox(
               height: ScreenUtil().setHeight(70).toDouble(),
             ),
             inputTextArea,
-            new SizedBox(
+            SizedBox(
               height: ScreenUtil().setHeight(80).toDouble(),
             ),
             loginButtonArea,
-            new SizedBox(
+            SizedBox(
               height: ScreenUtil().setHeight(60).toDouble(),
             ),
             thirdLoginArea,
-            new SizedBox(
+            SizedBox(
               height: ScreenUtil().setHeight(60).toDouble(),
             ),
             bottomArea,
